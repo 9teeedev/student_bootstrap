@@ -3,10 +3,12 @@
     if($conn){
         $page = isset($_GET['page']) ? trim($_GET['page']) : '';
         if($page == '') $page = 1;
+
         function convert_date($date){
-            $date = explode("-", $date);
+            $date = explode("-", $date); 
             $month = array("01"=>"มกราคม","02"=>"กุมภาพันธ์","03"=>"มีนาคม","04"=>"เมษายน","05"=>"พฤษภาคม","06"=>"มิถุนายน","07"=>"กรกฎาคม","08"=>"สิงหาคม","09"=>"กันยายน","10"=>"ตุลาคม","11"=>"พฤศจิกายน","12"=>"ธันวาคม");
-            return "วันที่ ".$date[2]." ".$month[$date[1]]." ".($date[0]+543);
+            $date_thai = intval($date[2]);
+            return "วันที่ ".$date_thai." ".$month[$date[1]]." ".($date[0]+543);
         }
 ?>
 
